@@ -1,0 +1,42 @@
+﻿@page "/detallespedido/{id}"
+@model Comercio.Pages.Pedidos.DetallesPedidoModel
+
+@{
+    ViewData["Title"] = "Detalles del Pedido";
+}
+
+<h2 class="mt-4">Detalles del Pedido</h2>
+
+<a asp-page="/Pedidos/ListarPedidos" class="btn btn-secondary mb-3">Volver a la Lista</a>
+
+<table class="table table-bordered">
+    <tr><th>ID Pedido:</th><td>@Model.Pedido.Id</td></tr>
+    <tr><th>Cliente:</th><td>@Model.Pedido.Cliente?.Nombre</td></tr>
+    <tr><th>Fecha:</th><td>@Model.Pedido.FechaPedido?.ToString("dd/MM/yyyy")</td></tr>
+    <tr><th>Estado:</th><td>@Model.Pedido.Estado</td></tr>
+    <tr><th>Total:</th><td>@Model.Pedido.Total?.ToString("C")</td></tr>
+</table>
+
+<h4>Productos en el Pedido</h4>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model.Detalles)
+        {
+            <tr>
+                <td>@detalle.Producto?.Nombre</td>
+                <td>@detalle.Cantidad</td>
+                <td>@detalle.PrecioUnitario?.ToString("C")</td>
+                <td>@((detalle.Cantidad * detalle.PrecioUnitario)?.ToString("C"))</td>
+            </tr>
+        }
+    </tbody>
+</table>

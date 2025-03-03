@@ -1,0 +1,30 @@
+﻿@page "/crearcategoria"
+@model Comercio.Pages.CrearCategoriaModel
+@{
+    ViewData["Title"] = "Crear Categoría";
+}
+
+<h2 class="mt-4">Crear Categoría</h2>
+
+<div class="card shadow-lg p-4 mt-3">
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Categoria.Nombre" class="form-label">Nombre</label>
+            <input asp-for="Categoria.Nombre" class="form-control" placeholder="Ingrese el nombre de la categoría">
+            <span asp-validation-for="Categoria.Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Categoria.Descripcion" class="form-label">Descripción</label>
+            <textarea asp-for="Categoria.Descripcion" class="form-control" placeholder="Ingrese una descripción"></textarea>
+            <span asp-validation-for="Categoria.Descripcion" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+        <a asp-page="/Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

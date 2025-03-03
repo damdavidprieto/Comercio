@@ -1,0 +1,54 @@
+﻿@page "/crearcliente"
+@model Comercio.Pages.CrearClienteModel
+@{
+    ViewData["Title"] = "Crear Cliente";
+}
+
+<h2 class="mt-4">Crear Cliente</h2>
+
+<div class="card shadow-lg p-4 mt-3">
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Cliente.Nombre" class="form-label">Nombre</label>
+            <input asp-for="Cliente.Nombre" class="form-control" placeholder="Ingrese el nombre">
+            <span asp-validation-for="Cliente.Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Cliente.Apellido" class="form-label">Apellido</label>
+            <input asp-for="Cliente.Apellido" class="form-control" placeholder="Ingrese el apellido">
+            <span asp-validation-for="Cliente.Apellido" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Cliente.Email" class="form-label">Email</label>
+            <input asp-for="Cliente.Email" type="email" class="form-control" placeholder="Ingrese el correo electrónico">
+            <span asp-validation-for="Cliente.Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Cliente.DireccionEnvio" class="form-label">Dirección de Envío</label>
+            <input asp-for="Cliente.DireccionEnvio" class="form-control" placeholder="Ingrese la dirección de envío">
+            <span asp-validation-for="Cliente.DireccionEnvio" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Cliente.DireccionFacturacion" class="form-label">Dirección de Facturación</label>
+            <input asp-for="Cliente.DireccionFacturacion" class="form-control" placeholder="Ingrese la dirección de facturación">
+            <span asp-validation-for="Cliente.DireccionFacturacion" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Cliente.Telefono" class="form-label">Teléfono</label>
+            <input asp-for="Cliente.Telefono" class="form-control" placeholder="Ingrese el número de teléfono">
+            <span asp-validation-for="Cliente.Telefono" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+        <a asp-page="/Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

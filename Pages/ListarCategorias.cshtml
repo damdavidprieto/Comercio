@@ -1,0 +1,35 @@
+﻿@page
+@model Comercio.Pages.ListarCategoriasModel
+
+@{
+    ViewData["Title"] = "Listado de Categorías";
+}
+
+<h2 class="mt-4">Listado de Categorías</h2>
+
+<a asp-page="/CrearCategoria" class="btn btn-primary mb-3">Agregar Nueva Categoría</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model.Categorias)
+        {
+            <tr>
+                <td>@categoria.Id</td>
+                <td>@categoria.Nombre</td>
+                <td>@categoria.Descripcion</td>
+                <td>
+                    <a asp-page="/EditarCategoria" asp-route-id="@categoria.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-page="/EliminarCategoria" asp-route-id="@categoria.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

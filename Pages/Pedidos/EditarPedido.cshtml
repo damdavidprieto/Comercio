@@ -1,0 +1,42 @@
+﻿@page "/editarpedido/{id}"
+@model Comercio.Pages.Pedidos.EditarPedidoModel
+
+@{
+    ViewData["Title"] = "Editar Pedido";
+}
+
+<h2 class="mt-4">Editar Pedido</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Pedido.Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Cliente</label>
+        <select asp-for="Pedido.ClienteId" class="form-control" asp-items="Model.Clientes">
+            <option value="">Seleccione un cliente</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fecha del Pedido</label>
+        <input asp-for="Pedido.FechaPedido" class="form-control" type="date" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Estado</label>
+        <select asp-for="Pedido.Estado" class="form-control">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En Proceso">En Proceso</option>
+            <option value="Completado">Completado</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Total</label>
+        <input asp-for="Pedido.Total" class="form-control" type="number" step="0.01" min="0" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <a asp-page="/Pedidos/ListarPedidos" class="btn btn-secondary">Cancelar</a>
+</form>

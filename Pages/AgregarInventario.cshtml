@@ -1,0 +1,30 @@
+﻿@page "/agregarinventario"
+@model Comercio.Pages.AgregarInventarioModel
+
+@{
+    ViewData["Title"] = "Agregar Inventario";
+}
+
+<h2 class="mt-4">Agregar Inventario</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="ProductoId" class="form-label">Producto</label>
+        <select asp-for="Inventario.ProductoId" class="form-control" asp-items="Model.Productos">
+            <option value="">Seleccione un producto</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="CantidadStock" class="form-label">Cantidad en Stock</label>
+        <input asp-for="Inventario.CantidadStock" class="form-control" type="number" min="0" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="UbicacionAlmacen" class="form-label">Ubicación en Almacén</label>
+        <input asp-for="Inventario.UbicacionAlmacen" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-page="/ListarInventario" class="btn btn-secondary">Cancelar</a>
+</form>
