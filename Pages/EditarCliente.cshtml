@@ -1,0 +1,25 @@
+﻿@page "{id:int}"
+@model Comercio.Pages.EditarClienteModel
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<h2 class="mt-4">Editar Cliente</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Cliente.Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input asp-for="Cliente.Nombre" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Cliente.Email" class="form-control" type="email" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-page="/ListarClientes" class="btn btn-secondary">Cancelar</a>
+</form>
