@@ -1,6 +1,7 @@
 using Comercio.Pages;
 using Infraestructure.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace Comercio.Tests;
