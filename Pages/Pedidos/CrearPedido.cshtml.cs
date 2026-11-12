@@ -60,9 +60,10 @@ namespace Comercio.Pages.Pedidos
                 {
                     if (detalle.ProductoId.HasValue && detalle.Cantidad > 0 && detalle.PrecioUnitario > 0)
                     {
-                        detalle.PedidoId = Pedido.Id;
                         totalPedido += detalle.Cantidad.Value * detalle.PrecioUnitario.Value;
-                        _context.DetallesPedidos.Add(detalle);
+                        // Link through the navigation property: the order has no Id yet, so setting
+                        // PedidoId here would leave every line pointing at Id 0.
+                        Pedido.DetallesPedidos.Add(detalle);
                     }
                 }
 
